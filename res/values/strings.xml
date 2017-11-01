@@ -2,8 +2,22 @@
 <resources>
 
     <string name="app_name">MisGastos</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Mis Gastos</string>
+    <string name="title_activity_new_spend">Nuevo Gasto</string>
+    <string name="title_activity_categories">Categorías</string>
+    <string name="title_activity_report">Reportes</string>
+    <string name="button_accept_form">Aceptar</string>
+    <string name="button_cancel_form">Cancelar</string>
+    <string name="button_categories_manager">Administrar</string>
+    <string name="text_field_spend">Monto</string>
+    <string name="text_field_spend_description">Descripción</string>
+    <string name="text_field_new_category">Categoría</string>
+    <string name="button_new_category">Nueva</string>
+    <string name="button_report_month_filter">Mes</string>
+    <string name="button_report_year_filter">Año</string>
+    <string name="button_back">Volver</string>
+    <string name="button_new_spend">Nuevo</string>
+    <string name="button_reports_link">Reportes</string>
 
 </resources>
