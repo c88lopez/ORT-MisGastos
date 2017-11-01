@@ -34,7 +34,7 @@
             android:name=".CategoryFormActivity">
         </activity>
         <activity
-            android:name=".ReportActivity"
+            android:name=".ReportsActivity"
             android:label="@string/title_activity_report" >
         </activity>
     </application>
