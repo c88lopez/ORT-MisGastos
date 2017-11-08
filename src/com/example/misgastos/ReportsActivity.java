@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class ReportsActivity extends Activity {
+	private static final String TAG = "ReportsActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +32,9 @@ public class ReportsActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void buttonReportsOnClick(View view) {
+		finish();
 	}
 }

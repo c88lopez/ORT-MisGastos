@@ -10,16 +10,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-
-	private Button buttonNewSpend;
-	private Button buttonReportsLink;
+	private static final String TAG = "MainActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		this.bootstrapActivity();
 	}
 
 	@Override
@@ -41,33 +37,11 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void bootstrapActivity() {
-		/**
-		 * Bootstrap browser button
-		 */
-		this.buildButtonNewSpend();
-		this.buildButtonReportsLink();
-	}
+    public void buttonNewSpendOnClick(View view) {
+        startActivity(new Intent(this, NewSpendActivity.class));
+    }
 
-	private void buildButtonNewSpend() {
-		buttonNewSpend = (Button) findViewById(R.id.button_new_spend_id);
-		buttonNewSpend.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), NewSpendActivity.class));
-			}
-		});
-	}
-
-	private void buildButtonReportsLink() {
-		buttonReportsLink = (Button) findViewById(R.id.button_reports_link_id);
-		buttonReportsLink.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), ReportsActivity.class));
-			}
-		});
-	}
+    public void buttonReportsOnClick(View view) {
+        startActivity(new Intent(this, ReportsActivity.class));
+    }
 }
