@@ -34,7 +34,7 @@ public class ReportsActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void buttonReportsOnClick(View view) {
+	public void buttonBackOnClick(View view) {
 		finish();
 	}
 }

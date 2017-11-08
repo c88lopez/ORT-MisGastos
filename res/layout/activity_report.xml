@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="buttonReportsOnClick"
+        android:onClick="buttonBackOnClick"
         android:text="@string/button_back" />
 
     <TextView
