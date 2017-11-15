@@ -19,5 +19,6 @@
     <string name="button_back">Volver</string>
     <string name="button_new_spend">Nuevo</string>
     <string name="button_reports_link">Reportes</string>
+    <string name="button_back_categories_list">Volver</string>
 
 </resources>

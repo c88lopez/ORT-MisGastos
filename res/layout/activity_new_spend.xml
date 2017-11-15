@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:onClick="buttonSubmitOnClick"
         android:text="@string/button_accept_form" />
 
     <Button
@@ -70,6 +71,7 @@
         android:layout_alignBaseline="@+id/spinner1"
         android:layout_alignBottom="@+id/spinner1"
         android:layout_alignParentEnd="true"
+        android:onClick="buttonCategoriesManagementOnClick"
         android:text="@string/button_categories_manager" />
 
 </RelativeLayout>

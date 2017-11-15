@@ -1,9 +1,11 @@
 package com.example.misgastos;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class NewSpendActivity extends Activity {
 
@@ -31,4 +33,16 @@ public class NewSpendActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	public void buttonSubmitOnClick(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+	}
+
+	public void buttonCategoriesManagementOnClick(View view) {
+        startActivity(new Intent(this, CategoriesActivity.class));
+	}
+
+    public void buttonCancelOnClick(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }
