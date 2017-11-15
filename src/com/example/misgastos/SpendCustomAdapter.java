@@ -17,7 +17,7 @@ public class SpendCustomAdapter extends ArrayAdapter<Spend> {
 	private List<Spend> spends;
 	
 	public SpendCustomAdapter(Context context, List<Spend> spends) {
-		super(context,R.layout.listview_spends, spends);
+		super(context,R.layout.custom_spend_listview, spends);
 		
 		this.spends = spends;
 	}
@@ -26,17 +26,17 @@ public class SpendCustomAdapter extends ArrayAdapter<Spend> {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = LayoutInflater.from(getContext());
 		
-		View item = inflater.inflate(R.layout.listview_spends, parent, false);
+		View item = inflater.inflate(R.layout.custom_spend_listview, parent, false);
 		
-		TextView tvImporte = (TextView)item.findViewById(R.id.tvListViewGastoImporte);
-		TextView tvCategoria = (TextView)item.findViewById(R.id.tvListViewGastoCategoria);
-		TextView tvDetalle = (TextView)item.findViewById(R.id.tvListViewGastoDetalle);
-		TextView tvfecha = (TextView)item.findViewById(R.id.tvListViewGastoFecha);
+		TextView tvValue = (TextView)item.findViewById(R.id.tvListViewGastoImporte);
+		TextView tvCategory = (TextView)item.findViewById(R.id.tvListViewGastoCategoria);
+		TextView tvDescription = (TextView)item.findViewById(R.id.tvListViewGastoDetalle);
+		TextView tvCreated = (TextView)item.findViewById(R.id.tvListViewGastoFecha);
 
-		tvImporte.setText(String.valueOf(round(spends.get(position).getValue(), 2)));
-		tvCategoria.setText(spends.get(position).getCategory() != null ? spends.get(position).getCategory().getName() : "");
-		tvDetalle.setText(spends.get(position).getDescription());
-		tvfecha.setText(new SimpleDateFormat("dd-MM-yyyy").format(spends.get(position).getCreated()));
+		tvValue.setText("$ " + String.valueOf(round(spends.get(position).getValue(), 2)));
+		tvCategory.setText(spends.get(position).getCategory() != null ? spends.get(position).getCategory().getName() : "");
+		tvDescription.setText(spends.get(position).getDescription());
+		tvCreated.setText(new SimpleDateFormat("dd-MM-yyyy").format(spends.get(position).getCreated()));
 		
 		return item;
 	}

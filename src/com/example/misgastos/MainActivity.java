@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 
 		try {
 			SpendInfo spendInfo = new SpendInfo(this);
-			ListView spendCustomListView = (ListView) findViewById(R.id.spendCustomListView);
+			ListView spendCustomListView = (ListView) findViewById(R.id.spends_list_view_id);
 		
 			SpendCustomAdapter spendAdapter = new SpendCustomAdapter(getBaseContext(), spendInfo.getSpends());
 			
