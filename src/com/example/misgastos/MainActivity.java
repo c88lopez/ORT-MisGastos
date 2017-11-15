@@ -1,11 +1,15 @@
 package com.example.misgastos;
 
+import com.example.entities.SpendInfo;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 
 public class MainActivity extends Activity {
 	private static final String TAG = "MainActivity";
@@ -14,10 +18,19 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		try {
+			SpendInfo spendInfo = new SpendInfo(this);
+			ListView spendCustomListView = (ListView) findViewById(R.id.spendCustomListView);
 		
-		/**
-		 * @todo Aca poner la carga del listado de gastos
-		 */
+			SpendCustomAdapter spendAdapter = new SpendCustomAdapter(getBaseContext(), spendInfo.getSpends());
+			
+			Log.v(TAG, spendInfo.getSpends().get(0).getDescription());
+			
+			spendCustomListView.setAdapter(spendAdapter);
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
+		}
 	}
 
 	@Override
