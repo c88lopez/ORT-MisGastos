@@ -1,4 +1,6 @@
-package com.example.misgastos;
+package com.ort.misgastos;
+
+import com.example.misgastos.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,20 +9,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class CategoryFormActivity extends Activity {
+public class CategoriesActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_category_form);
-		
-		setTitle("Agregar / Editar Categoria");
+		setContentView(R.layout.activity_categories);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.category_form, menu);
+		getMenuInflater().inflate(R.menu.categories, menu);
 		return true;
 	}
 
@@ -36,11 +36,11 @@ public class CategoryFormActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void buttonSubmitOnClick(View view) {
-        startActivity(new Intent(this, CategoriesActivity.class));
+	public void buttonNewCategoryOnClick(View view) {
+        startActivity(new Intent(this, CategoryFormActivity.class));
 	}
 
-	public void buttonCancelOnClick(View view) {
-        startActivity(new Intent(this, CategoriesActivity.class));
+	public void buttonBackOnClick(View view) {
+        startActivity(new Intent(this, NewSpendActivity.class));
 	}
 }

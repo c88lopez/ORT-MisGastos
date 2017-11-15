@@ -1,25 +1,26 @@
+package com.ort.misgastos;
 
-package com.example.misgastos;
+import com.example.misgastos.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class ReportsActivity extends Activity {
-	private static final String TAG = "ReportsActivity";
+public class NewSpendActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_report);
+		setContentView(R.layout.activity_new_spend);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.report, menu);
+		getMenuInflater().inflate(R.menu.new_spend, menu);
 		return true;
 	}
 
@@ -35,7 +36,15 @@ public class ReportsActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void buttonBackOnClick(View view) {
-		finish();
+	public void buttonSubmitOnClick(View view) {
+        startActivity(new Intent(this, MainActivity.class));
 	}
+
+	public void buttonCategoriesManagementOnClick(View view) {
+        startActivity(new Intent(this, CategoriesActivity.class));
+	}
+
+    public void buttonCancelOnClick(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }

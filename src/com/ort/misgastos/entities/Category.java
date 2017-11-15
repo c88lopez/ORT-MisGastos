@@ -1,4 +1,4 @@
-package com.example.entities;
+package com.ort.misgastos.entities;
 
 public class Category {
 	private int id;

@@ -6,15 +6,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.misgastos.CategoriesActivity" >
+    tools:context="com.ort.misgastos.CategoriesActivity" >
 
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true" >
 
     </ListView>
@@ -24,7 +24,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/listView1"
+        android:layout_alignStart="@+id/listView1"
         android:layout_alignParentBottom="true"
         android:onClick="buttonNewCategoryOnClick"
         android:text="@string/button_new_category" />
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
-        android:layout_alignRight="@+id/listView1"
+        android:layout_alignEnd="@+id/listView1"
         android:onClick="buttonBackOnClick"
         android:text="@string/button_back_categories_list" />
 

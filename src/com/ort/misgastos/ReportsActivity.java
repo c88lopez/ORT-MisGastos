@@ -1,24 +1,25 @@
-package com.example.misgastos;
+
+package com.ort.misgastos;
+
+import com.example.misgastos.R;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class CategoriesActivity extends Activity {
-
+public class ReportsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_categories);
+		setContentView(R.layout.activity_report);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.categories, menu);
+		getMenuInflater().inflate(R.menu.report, menu);
 		return true;
 	}
 
@@ -34,11 +35,7 @@ public class CategoriesActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void buttonNewCategoryOnClick(View view) {
-        startActivity(new Intent(this, CategoryFormActivity.class));
-	}
-
 	public void buttonBackOnClick(View view) {
-        startActivity(new Intent(this, NewSpendActivity.class));
+		finish();
 	}
 }

@@ -7,11 +7,11 @@
     android:orientation="horizontal" >
     
     <TextView
-        android:id="@+id/tvListViewGastoImporte"
+        android:id="@+id/tvListViewSpendValue"
         android:layout_width="110dp"
         android:layout_height="38dp"
-        android:layout_gravity="right"
-        android:gravity="left"
+        android:layout_gravity="end"
+        android:gravity="start"
         android:maxLines="1"
         android:text="$ 1200"
         android:textSize="20dp" />
@@ -20,11 +20,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.28"
-        android:gravity="left"
+        android:gravity="start"
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/tvListViewGastoCategoria"
+            android:id="@+id/tvListViewSpendCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -33,7 +33,7 @@
         	android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/tvListViewGastoDetalle"
+            android:id="@+id/tvListViewSpendDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -43,11 +43,11 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvListViewGastoFecha"
+        android:id="@+id/tvListViewSpendCreated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.50"
-        android:gravity="right"
+        android:gravity="end"
         android:text="14/11/2017"
         android:textSize="20dp" />
 
