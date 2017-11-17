@@ -7,12 +7,12 @@
     <string name="title_activity_new_spend">Nuevo Gasto</string>
     <string name="title_activity_categories">Categorías</string>
     <string name="title_activity_report">Reportes</string>
-    <string name="button_accept_form">Aceptar</string>
+    <string name="button_submit_form">Aceptar</string>
     <string name="button_cancel_form">Cancelar</string>
     <string name="button_categories_manager">Administrar</string>
-    <string name="text_field_spend">Monto</string>
-    <string name="text_field_spend_description">Descripción</string>
-    <string name="text_field_new_category">Categoría</string>
+    <string name="edit_text_spend_value">Monto</string>
+    <string name="edit_text_spend_description">Descripción</string>
+    <string name="edit_text_new_category">Categoría</string>
     <string name="button_new_category">Nueva</string>
     <string name="button_report_month_filter">Mes</string>
     <string name="button_report_year_filter">Año</string>
@@ -20,5 +20,7 @@
     <string name="button_new_spend">Nuevo</string>
     <string name="button_reports_link">Reportes</string>
     <string name="button_back_categories_list">Volver</string>
+    <string name="button_category_edit">Editar</string>
+	<string name="button_category_delete">Borrar</string>
 
 </resources>

@@ -1,20 +1,49 @@
 package com.ort.misgastos;
 
+import java.util.List;
+
 import com.example.misgastos.R;
+import com.ort.misgastos.db.CategoryDAO;
+import com.ort.misgastos.file.FileManager;
+import com.ort.misgastos.spend.Category;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 public class NewSpendActivity extends Activity {
+	private static final String TAG = "NewSpendActivity";
+
+	private EditText editTextSpendValue;
+	private EditText editTextSpendDescription;
+	private Spinner spinnerSpendCategory;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_spend);
+
+		editTextSpendValue = (EditText) findViewById(R.id.edit_text_spend_value);
+		editTextSpendDescription = (EditText) findViewById(R.id.edit_text_spend_description);
+		spinnerSpendCategory = (Spinner) findViewById(R.id.spinner_spend_categories);
+
+		try {
+			if ((new CategoryDAO(this)).getList().isEmpty()) {
+				FileManager.importCategories(this);
+			}
+
+			spinnerSpendCategory.setAdapter(new ArrayAdapter<Category>(this, android.R.layout.simple_spinner_item,
+					(new CategoryDAO(this)).getList()));
+		} catch (Exception exception) {
+			Log.d(TAG, exception.getMessage(), exception);
+		}
 	}
 
 	@Override
@@ -37,14 +66,14 @@ public class NewSpendActivity extends Activity {
 	}
 
 	public void buttonSubmitOnClick(View view) {
-        startActivity(new Intent(this, MainActivity.class));
+		startActivity(new Intent(this, MainActivity.class));
 	}
 
 	public void buttonCategoriesManagementOnClick(View view) {
-        startActivity(new Intent(this, CategoriesActivity.class));
+		startActivity(new Intent(this, CategoriesActivity.class));
 	}
 
-    public void buttonCancelOnClick(View view) {
-        startActivity(new Intent(this, MainActivity.class));
-    }
+	public void buttonCancelOnClick(View view) {
+		startActivity(new Intent(this, MainActivity.class));
+	}
 }

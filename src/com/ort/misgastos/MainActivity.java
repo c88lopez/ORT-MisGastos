@@ -2,35 +2,34 @@ package com.ort.misgastos;
 
 import com.example.misgastos.R;
 import com.ort.misgastos.db.SpendDAO;
-import com.ort.misgastos.file.FileManager;
+import com.ort.misgastos.spend.SpendCustomAdapter;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
 public class MainActivity extends Activity {
+	private static final String TAG = "MainActivity";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		if ((new CategoriaData(this)).getList().isEmpty()) {
-			FileManager.importarCategorias(this);
-		}
 
 		try {
-			SpendDAO spendInfo = new SpendDAO(this);
-			ListView spendCustomListView = (ListView) findViewById(R.id.spends_list_view_id);
+			SpendDAO spendDAO = new SpendDAO(this);
+			ListView spendsCustomListView = (ListView) findViewById(R.id.list_view_spends_id);
 
-			SpendCustomAdapter spendAdapter = new SpendCustomAdapter(getBaseContext(), spendInfo.getSpends());
+			SpendCustomAdapter spendAdapter = new SpendCustomAdapter(getBaseContext(), spendDAO.getSpends());
 
-			spendCustomListView.setAdapter(spendAdapter);
+			spendsCustomListView.setAdapter(spendAdapter);
 		} catch (Exception exception) {
-			System.out.println(exception.getMessage());
+			Log.d(TAG, exception.getMessage(), exception);
 		}
 	}
 

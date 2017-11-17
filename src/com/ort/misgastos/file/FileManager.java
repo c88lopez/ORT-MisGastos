@@ -9,8 +9,8 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 import com.ort.misgastos.db.CategoryDAO;
-import com.ort.misgastos.entities.Category;
-import com.ort.misgastos.entities.Report;
+import com.ort.misgastos.spend.Category;
+import com.ort.misgastos.spend.Report;
 
 import android.content.Context;
 import android.util.Log;
@@ -18,27 +18,28 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 public class FileManager {
-	public static void importarCategorias(Context context) {
+	private static final String TAG = "FileManager";
+	
+	public static void importCategories(Context context) throws Exception {
 		BufferedReader reader = null;
+		
 		try {
-			reader = new BufferedReader(new InputStreamReader(context.getAssets().open("categorias.txt")));
+			reader = new BufferedReader(new InputStreamReader(context.getAssets().open("default_categories.txt")));
 
-			// do reading, usually loop until end of file reading
 			String mLine;
 			CategoryDAO categoryDao = new CategoryDAO(context);
+			
 			while ((mLine = reader.readLine()) != null) {
 				String[] vec = mLine.split(";");
 
 				if (vec.length == 2) {
-					Category categoria = new Category(Integer.parseInt(vec[0]), vec[1]);
-					categoryDao.insert(categoria);
+					categoryDao.insert(new Category(Integer.parseInt(vec[0]), vec[1]));
 				}
 			}
 		} catch (IOException e) {
-			// log the exception
+			throw e;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw e;
 		} finally {
 			if (reader != null) {
 				try {

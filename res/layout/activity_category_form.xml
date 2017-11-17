@@ -9,38 +9,36 @@
     tools:context="com.ort.misgastos.CategoryFormActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_cancel_form"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="buttonSubmitOnClick"
-        android:text="@string/button_accept_form" />
-
-    <Button
-        android:id="@+id/button2"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:onClick="buttonCancelOnClick"
         android:text="@string/button_cancel_form" />
 
-    <EditText
-        android:id="@+id/editText1"
+    <Button
+        android:id="@+id/button_submit_form"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/edit_text_new_category"
+        android:layout_alignParentBottom="true"
+        android:onClick="buttonSubmitOnClick"
+        android:text="@string/button_submit_form" />
+
+    <EditText
+        android:id="@+id/edit_text_new_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/button1"
-        android:layout_marginTop="87dp"
+        android:layout_centerVertical="true"
         android:ems="10"
-        android:hint="@string/text_field_new_category" />
+        android:hint="@string/edit_text_new_category" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

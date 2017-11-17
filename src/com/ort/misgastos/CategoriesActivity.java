@@ -1,20 +1,38 @@
 package com.ort.misgastos;
 
 import com.example.misgastos.R;
+import com.ort.misgastos.db.CategoryDAO;
+import com.ort.misgastos.file.FileManager;
+import com.ort.misgastos.spend.Category;
+import com.ort.misgastos.spend.CategoryCustomAdapter;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class CategoriesActivity extends Activity {
+	private static final String TAG = "CategoriesActivity";
 
+	private ListView categoriesListView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_categories);
+		
+		categoriesListView = (ListView) findViewById(R.id.list_view_categories);
+
+		try {
+			categoriesListView.setAdapter(new CategoryCustomAdapter(getBaseContext(), (new CategoryDAO(this)).getList()));
+		} catch (Exception exception) {
+			Log.d(TAG, exception.getMessage(), exception);
+		}
 	}
 
 	@Override

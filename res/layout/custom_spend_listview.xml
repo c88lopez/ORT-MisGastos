@@ -7,7 +7,7 @@
     android:orientation="horizontal" >
     
     <TextView
-        android:id="@+id/tvListViewSpendValue"
+        android:id="@+id/text_view_spend_value"
         android:layout_width="110dp"
         android:layout_height="38dp"
         android:layout_gravity="end"
@@ -24,7 +24,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/tvListViewSpendCategory"
+            android:id="@+id/text_view_spend_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -33,7 +33,7 @@
         	android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/tvListViewSpendDescription"
+            android:id="@+id/text_view_spend_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -43,7 +43,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvListViewSpendCreated"
+        android:id="@+id/text_view_spend_created"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.50"

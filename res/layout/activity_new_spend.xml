@@ -9,17 +9,17 @@
     tools:context="com.ort.misgastos.NewSpendActivity">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_submit_form"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:onClick="buttonSubmitOnClick"
-        android:text="@string/button_accept_form" />
+        android:text="@string/button_submit_form" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_cancel_form"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,47 +29,47 @@
         android:text="@string/button_cancel_form" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/edit_text_spend_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText2"
-        android:layout_alignStart="@+id/button2"
+        android:layout_above="@+id/edit_text_spend_description"
+        android:layout_alignStart="@+id/button_submit_form"
         android:layout_marginBottom="32dp"
-        android:layout_toStartOf="@+id/button1"
+        android:layout_toStartOf="@+id/button_categories_manager"
         android:ems="10"
-        android:hint="@string/text_field_spend"
+        android:hint="@string/edit_text_spend_value"
         android:inputType="numberDecimal">
 
         <requestFocus />
     </EditText>
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/spinner_spend_categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText1"
-        android:layout_alignStart="@+id/editText1"
+        android:layout_above="@+id/edit_text_spend_value"
+        android:layout_alignStart="@+id/edit_text_spend_value"
         android:layout_marginBottom="24dp"
-        android:layout_toStartOf="@+id/button1" />
+        android:layout_toStartOf="@+id/button_categories_manager" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edit_text_spend_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignEnd="@+id/button1"
-        android:layout_alignStart="@+id/editText1"
+        android:layout_above="@+id/button_submit_form"
+        android:layout_alignEnd="@+id/button_categories_manager"
+        android:layout_alignStart="@+id/edit_text_spend_value"
         android:layout_marginBottom="112dp"
         android:ems="10"
-        android:hint="@string/text_field_spend_description" />
+        android:hint="@string/edit_text_spend_description" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_categories_manager"
         style="@android:style/Widget.Material.Light.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/spinner1"
-        android:layout_alignBottom="@+id/spinner1"
+        android:layout_alignBaseline="@+id/spinner_spend_categories"
+        android:layout_alignBottom="@+id/spinner_spend_categories"
         android:layout_alignParentEnd="true"
         android:onClick="buttonCategoriesManagementOnClick"
         android:text="@string/button_categories_manager" />

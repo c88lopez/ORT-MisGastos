@@ -1,22 +1,41 @@
 package com.ort.misgastos;
 
 import com.example.misgastos.R;
+import com.ort.misgastos.db.CategoryDAO;
+import com.ort.misgastos.spend.Category;
 
+import android.R.bool;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class CategoryFormActivity extends Activity {
+	private static final String TAG = "CategoryFormActivity";
+
+	private String categoryToEditId;
+
+	private EditText editTextCategoryName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_category_form);
-		
-		setTitle("Agregar / Editar Categoria");
+
+		categoryToEditId = getIntent().getStringExtra("categoryToEditID");
+
+		if (categoryToEditId == null) {
+			setTitle("Agregar Categoria");
+		} else {
+			setTitle("Editar Categoria");
+		}
+
+		editTextCategoryName = (EditText) findViewById(R.id.edit_text_new_category);
 	}
 
 	@Override
@@ -39,10 +58,56 @@ public class CategoryFormActivity extends Activity {
 	}
 
 	public void buttonSubmitOnClick(View view) {
-        startActivity(new Intent(this, CategoriesActivity.class));
+		if (validarCampos()) {
+			try {
+				CategoryDAO categoryDAO = new CategoryDAO(this);
+				if (categoryToEditId == null) {
+					categoryDAO.insert(new Category(String.valueOf(editTextCategoryName.getText())));
+					
+					mostrarMensaje("Categoria registrada correctamente");
+				} else {
+					categoryDAO.update(new Category(Long.parseLong(categoryToEditId), editTextCategoryName.getText().toString()));
+					
+					mostrarMensaje("Categoria actualizada correctamente");
+				}
+				
+				startActivity(new Intent(this, CategoriesActivity.class));
+			} catch (Exception ex) {
+				mostrarMensaje(ex.getMessage(), Toast.LENGTH_LONG);
+			}
+		}
+	}
+
+	private boolean validarCampos() {
+		final int LARGO_DESCRIPCION = 50;
+		Boolean valido = true;
+
+		if (editTextCategoryName.getText().toString() == "") {
+			mostrarMensaje("Debe ingresar un nombre");
+			
+			valido = false;
+		} else {
+			if (editTextCategoryName.getText().length() > LARGO_DESCRIPCION) {
+				mostrarMensaje("El nombre no puede superar " + String.valueOf(LARGO_DESCRIPCION) + " caracteres");
+				
+				valido = false;
+			}
+		}
+
+		return valido;
+	}
+
+	private void mostrarMensaje(String msj) {
+		mostrarMensaje(msj, Toast.LENGTH_SHORT);
+	}
+
+	private void mostrarMensaje(String msj, int largo) {
+		Toast toast = Toast.makeText(this, msj, largo);
+		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast.show();
 	}
 
 	public void buttonCancelOnClick(View view) {
-        startActivity(new Intent(this, CategoriesActivity.class));
+		finish();
 	}
 }

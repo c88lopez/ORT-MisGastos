@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.ort.misgastos.entities.Category;
-import com.ort.misgastos.entities.Spend;
+import com.ort.misgastos.spend.Category;
+import com.ort.misgastos.spend.Spend;
 
 import android.content.Context;
 
 public class SpendDAO {
 
-	private MySpendsDbHelper handler;
+	private Helper handler;
 
 	public SpendDAO(Context context) {
-		handler = MySpendsDbHelper.getInstance(context);
+		handler = Helper.getInstance(context);
 	}
 
 	public List<Spend> getSpends() throws IllegalArgumentException, ParseException {

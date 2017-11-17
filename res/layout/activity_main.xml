@@ -9,7 +9,7 @@
     tools:context="com.ort.misgastos.MainActivity" >
 
     <ListView
-        android:id="@+id/spends_list_view_id"
+        android:id="@+id/list_view_spends_id"
         android:layout_width="match_parent"
         android:layout_height="354dp"
         android:layout_above="@+id/button_new_spend_id"
