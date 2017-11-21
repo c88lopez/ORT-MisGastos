@@ -37,11 +37,10 @@ public class CategoryCustomAdapter extends ArrayAdapter<Category> {
 		Button buttonDeleteCategory = (Button) item.findViewById(R.id.button_category_delete);
 
 		textViewCategoryName.setText(categories.get(position).getName());
+		
 		buttonEditCategory.setTag(categories.get(position).getId());
 		buttonDeleteCategory.setTag(categories.get(position).getId());
 
-//		buttonEditCategory.setOnClickListener(new EditCategoryButtonOnClickListener());
-		
 		buttonEditCategory.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -54,19 +53,6 @@ public class CategoryCustomAdapter extends ArrayAdapter<Category> {
 
 		return item;
 	}
-
-//	public class EditCategoryButtonOnClickListener implements OnClickListener {
-//		private long id;
-//
-//		public EditCategoryButtonOnClickListener(Context context, long id) {
-//
-//		}
-//
-//		@Override
-//		public void onClick(View v) {
-//			startActivity();
-//		}
-//	}
 
 	private float round(float d, int decimalPlace) {
 		BigDecimal bd = new BigDecimal(Float.toString(d));
