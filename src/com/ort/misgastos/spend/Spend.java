@@ -3,13 +3,13 @@ package com.ort.misgastos.spend;
 import java.util.Date;
 
 public class Spend {
-	private int id;
+	private long id;
 	private String description;
 	private Category category;
 	private float value;
-	private Date created;
+	private String created;
 	
-	public Spend(int id, String description, Category category, float value, Date created) {
+	public Spend(int id, String description, Category category, float value, String created) {
 		super();
 		
 		this.id = id;
@@ -19,11 +19,28 @@ public class Spend {
 		this.created = created;
 	}
 	
-	public void setId(int id) {
+	public Spend(Category category, float value, String description) {
+		super();
+		
+		this.category = category;
+		this.value = value;
+		this.description = description;
+	}
+	
+	public Spend(Category category, float value, String description, String created) {
+		super();
+		
+		this.category = category;
+		this.value = value;
+		this.description = description;
+		this.created = created;
+	}
+	
+	public void setId(long id) {
 		this.id = id;
 	}
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	
@@ -51,11 +68,11 @@ public class Spend {
 		return value;
 	}
 	
-	public void setCreated(Date created) {
+	public void setCreated(String created) {
 		this.created = created;
 	}
 	
-	public Date getCreated() {
+	public String getCreated() {
 		return created;
 	}
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import com.example.misgastos.R;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,15 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class SpendCustomAdapter extends ArrayAdapter<Spend> {
+	private static final String TAG = "SpendCustomAdapter";
+	
 	private List<Spend> spends;
 
 	public SpendCustomAdapter(Context context, List<Spend> spends) {
 		super(context, R.layout.custom_spend_listview, spends);
 
+		Log.v(TAG, spends.get(0).getDescription());
+		
 		this.spends = spends;
 	}
 
@@ -37,7 +42,7 @@ public class SpendCustomAdapter extends ArrayAdapter<Spend> {
 		textViewCategory.setText(
 				spends.get(position).getCategory() != null ? spends.get(position).getCategory().getName() : "");
 		textViewDescription.setText(spends.get(position).getDescription());
-		textViewCreated.setText(new SimpleDateFormat("dd-MM-yyyy").format(spends.get(position).getCreated()));
+		textViewCreated.setText(spends.get(position).getCreated());
 
 		return item;
 	}

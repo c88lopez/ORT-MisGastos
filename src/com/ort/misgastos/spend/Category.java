@@ -4,6 +4,12 @@ public class Category {
 	private long id;
 	private String name;
 	
+	public Category(long id) {
+		super();
+		
+		this.id = id;
+	}
+	
 	public Category(long id, String name) {
 		super();
 		

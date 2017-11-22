@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 			SpendDAO spendDAO = new SpendDAO(this);
 			ListView spendsCustomListView = (ListView) findViewById(R.id.list_view_spends_id);
 
-			SpendCustomAdapter spendAdapter = new SpendCustomAdapter(getBaseContext(), spendDAO.getSpends());
+			SpendCustomAdapter spendAdapter = new SpendCustomAdapter(getBaseContext(), spendDAO.getList());
 
 			spendsCustomListView.setAdapter(spendAdapter);
 		} catch (Exception exception) {

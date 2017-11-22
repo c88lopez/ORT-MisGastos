@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.example.misgastos.R;
 import com.ort.misgastos.db.CategoryDAO;
+import com.ort.misgastos.db.SpendDAO;
 import com.ort.misgastos.file.FileManager;
 import com.ort.misgastos.spend.Category;
+import com.ort.misgastos.spend.Spend;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +16,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -25,6 +29,8 @@ public class NewSpendActivity extends Activity {
 	private EditText editTextSpendDescription;
 	private Spinner spinnerSpendCategory;
 
+	private Category spendCategory;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,6 +39,20 @@ public class NewSpendActivity extends Activity {
 		editTextSpendValue = (EditText) findViewById(R.id.edit_text_spend_value);
 		editTextSpendDescription = (EditText) findViewById(R.id.edit_text_spend_description);
 		spinnerSpendCategory = (Spinner) findViewById(R.id.spinner_spend_categories);
+
+		spinnerSpendCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				spendCategory = (new CategoryDAO(view.getContext())).getList().get(position);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 
 		try {
 			if ((new CategoryDAO(this)).getList().isEmpty()) {
@@ -66,6 +86,15 @@ public class NewSpendActivity extends Activity {
 	}
 
 	public void buttonSubmitOnClick(View view) {
+		try {
+			SpendDAO spendDAO = new SpendDAO(view.getContext());
+			spendDAO.insert(new Spend(spendCategory, Float.parseFloat(editTextSpendValue.getText().toString()),
+					editTextSpendDescription.getText().toString()));
+
+		} catch (Exception e) {
+			Log.v(TAG, e.getMessage());
+		}
+
 		startActivity(new Intent(this, MainActivity.class));
 	}
 

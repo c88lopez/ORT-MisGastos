@@ -12,7 +12,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 public class CategoryDAO {
 
@@ -157,7 +156,7 @@ public class CategoryDAO {
 		SQLiteDatabase db = handler.getDb();
 		String s = category != null ? Long.toString(category.getId()) : "";
 
-		String sql = "SELECT COUNT(*) FROM spends WHERE spends.categories_id = ?;";
+		String sql = "SELECT COUNT(*) FROM spends WHERE spends.category_id = ?;";
 		Cursor cursor = db.rawQuery(sql, new String[] { s });
 		cursor.moveToFirst();
 

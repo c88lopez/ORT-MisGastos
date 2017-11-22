@@ -4,10 +4,10 @@ import com.example.misgastos.R;
 import com.ort.misgastos.db.CategoryDAO;
 import com.ort.misgastos.spend.Category;
 
-import android.R.bool;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +18,8 @@ import android.widget.Toast;
 public class CategoryFormActivity extends Activity {
 	private static final String TAG = "CategoryFormActivity";
 
-	private String categoryToEditId;
+	private String categoryId;
+	private String categoryName;
 
 	private EditText editTextCategoryName;
 
@@ -27,15 +28,17 @@ public class CategoryFormActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_category_form);
 
-		categoryToEditId = getIntent().getStringExtra("categoryToEditID");
-
-		if (categoryToEditId == null) {
+		categoryId = getIntent().getStringExtra("categoryId");
+		categoryName = getIntent().getStringExtra("categoryName");
+		
+		if (categoryId == null) {
 			setTitle("Agregar Categoria");
 		} else {
 			setTitle("Editar Categoria");
 		}
 
 		editTextCategoryName = (EditText) findViewById(R.id.edit_text_new_category);
+		editTextCategoryName.setText(categoryName);
 	}
 
 	@Override
@@ -61,12 +64,12 @@ public class CategoryFormActivity extends Activity {
 		if (validarCampos()) {
 			try {
 				CategoryDAO categoryDAO = new CategoryDAO(this);
-				if (categoryToEditId == null) {
+				if (categoryId == null) {
 					categoryDAO.insert(new Category(String.valueOf(editTextCategoryName.getText())));
 					
 					mostrarMensaje("Categoria registrada correctamente");
-				} else {
-					categoryDAO.update(new Category(Long.parseLong(categoryToEditId), editTextCategoryName.getText().toString()));
+				} else {					
+					categoryDAO.update(new Category(Long.parseLong(categoryId), editTextCategoryName.getText().toString()));
 					
 					mostrarMensaje("Categoria actualizada correctamente");
 				}
