@@ -1,5 +1,6 @@
 package com.ort.misgastos.spend;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.example.misgastos.R;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class ReportCustomAdapter extends ArrayAdapter<Spend> {
@@ -17,7 +19,7 @@ public class ReportCustomAdapter extends ArrayAdapter<Spend> {
 	
 	private List<Spend> spends;
 
-	public ReportCustomAdapter(Context context, List<Spend> spends) {
+	public ReportCustomAdapter(Context context, List<Spend> categoriesReport) {
 		super(context, R.layout.custom_spend_listview, spends);
 
 		Log.v(TAG, spends.get(0).getDescription());
@@ -34,11 +36,11 @@ public class ReportCustomAdapter extends ArrayAdapter<Spend> {
 		TextView textViewCategoryDescription = (TextView) item.findViewById(R.id.text_view_spend_category);
 		TextView textViewCategoryPercetage = (TextView) item.findViewById(R.id.text_view_spend_created);
 
-		textViewValue.setText("$ " + String.valueOf(round(spends.get(position).getValue(), 2)));
-		textViewCategory.setText(
-				spends.get(position).getCategory() != null ? spends.get(position).getCategory().getName() : "");
-		textViewDescription.setText(spends.get(position).getDescription());
-		textViewCreated.setText(spends.get(position).getCreated());
+//		textViewValue.setText("$ " + String.valueOf(round(spends.get(position).getValue(), 2)));
+//		textViewCategory.setText(
+//				spends.get(position).getCategory() != null ? spends.get(position).getCategory().getName() : "");
+//		textViewDescription.setText(spends.get(position).getDescription());
+//		textViewCreated.setText(spends.get(position).getCreated());
 
 		return item;
 	}

@@ -1,19 +1,34 @@
 
 package com.ort.misgastos;
 
+import java.util.List;
+
 import com.example.misgastos.R;
+import com.ort.misgastos.spend.Category;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Spinner;
 
 public class ReportsActivity extends Activity {
+	
+	private Spinner monthSpinner;
+	private Spinner yearSpinner;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report);
+		
+		monthSpinner = (Spinner) findViewById(R.id.report_spinner_month_filter);
+		yearSpinner = (Spinner) findViewById(R.id.report_spinner_year_filter);
+		
+		List<Integer> monthList = new ArrayList<>();
+		
+		monthSpinner.setAdapter(new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, );
 	}
 
 	@Override
