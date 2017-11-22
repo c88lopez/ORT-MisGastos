@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spendCustomListView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"   
+    android:gravity="center_horizontal"
+    android:orientation="horizontal" >
+    
+    <TextView
+        android:id="@+id/text_view_report_category_name"
+        android:layout_width="110dp"
+        android:layout_height="38dp"
+        android:layout_gravity="end"
+        android:layout_weight="0.28"
+        android:gravity="start"
+        android:maxLines="1"
+        android:text="Category Description"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_view_report_category_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_weight="0.26"
+        android:gravity="end"
+        android:text="33 %"
+        android:textSize="20dp" />
+
+</LinearLayout>

@@ -25,7 +25,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001a;
+        public static final int action_settings=0x7f08001c;
         public static final int button_back_categories_list=0x7f080002;
         public static final int button_cancel_form=0x7f080003;
         public static final int button_categories_manager=0x7f08000b;
@@ -48,10 +48,12 @@ public final class R {
         public static final int spendCustomListView=0x7f080015;
         public static final int spinner_spend_categories=0x7f08000c;
         public static final int text_view_category_name=0x7f080012;
-        public static final int text_view_spend_category=0x7f080017;
-        public static final int text_view_spend_created=0x7f080019;
-        public static final int text_view_spend_description=0x7f080018;
-        public static final int text_view_spend_value=0x7f080016;
+        public static final int text_view_report_category_name=0x7f080016;
+        public static final int text_view_report_category_percentage=0x7f080017;
+        public static final int text_view_spend_category=0x7f080019;
+        public static final int text_view_spend_created=0x7f08001b;
+        public static final int text_view_spend_description=0x7f08001a;
+        public static final int text_view_spend_value=0x7f080018;
     }
     public static final class layout {
         public static final int activity_categories=0x7f030000;
@@ -60,7 +62,8 @@ public final class R {
         public static final int activity_new_spend=0x7f030003;
         public static final int activity_report=0x7f030004;
         public static final int custom_categories_listview=0x7f030005;
-        public static final int custom_spend_listview=0x7f030006;
+        public static final int custom_report_listview=0x7f030006;
+        public static final int custom_spend_listview=0x7f030007;
     }
     public static final class menu {
         public static final int categories=0x7f070000;
